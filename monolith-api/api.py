@@ -8,8 +8,8 @@ from healthcheck import Healthcheck
 app = Flask(__name__)
 api = Api(app)
 
-api.add_resource(Cart, '/cart/')
-api.add_resource(ProductList, '/products/')
+api.add_resource(Cart, '/cart')
+api.add_resource(ProductList, '/products')
 api.add_resource(Product, '/products/<product_id>')
 api.add_resource(Healthcheck, '/health')
 

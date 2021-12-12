@@ -13,7 +13,7 @@ export class Backend {
     public async loadItems(): Promise<Item[]> {
 
         console.log('Backend.loadItems : GET items')
-        const response = await fetch(`${Backend.BASE_URL}/products/`)
+        const response = await fetch(`${Backend.BASE_URL}/products`)
         const jsonResponse = await response.json()
         let items: Item[] = jsonResponse.items
         return items
@@ -22,7 +22,7 @@ export class Backend {
 
     public async loadCart(): Promise<Cart> {
         console.log('Backend.loadCart : GET cart')
-        const response = await fetch(`${Backend.BASE_URL}/cart/`)
+        const response = await fetch(`${Backend.BASE_URL}/cart`)
         const jsonResponse = await response.json()
         // console.log('******')
         // console.log(jsonResponse)
