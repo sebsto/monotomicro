@@ -19,7 +19,6 @@ export class Backend {
         return items
     }
 
-
     public async loadCart(): Promise<Cart> {
         console.log('Backend.loadCart : GET cart')
         const response = await fetch(`${Backend.BASE_URL}/cart`)
@@ -32,11 +31,10 @@ export class Backend {
     public async addItemToCart(item: Item, quantity: number): Promise<Cart> {
 
         const data: ItemInCart = { item: item, quantity: quantity }
-        const response = await fetch(`${Backend.BASE_URL}/cart/`, {
+        const response = await fetch(`${Backend.BASE_URL}/cart`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: JSON.stringify(data) // body data type must match "Content-Type" header
 
