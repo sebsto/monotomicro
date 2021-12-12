@@ -55,6 +55,7 @@ Resources:
       CorsConfiguration:
         AllowMethods:
           - GET
+          - PUT
         AllowHeaders: 
           - '*'
         AllowOrigins: !Ref ClientDomains
