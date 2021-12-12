@@ -3,6 +3,7 @@ from flask_restful import Resource, Api
 
 from cart import Cart 
 from products import Product, ProductList
+from healthcheck import Healthcheck
 
 app = Flask(__name__)
 api = Api(app)
@@ -10,6 +11,7 @@ api = Api(app)
 api.add_resource(Cart, '/cart/')
 api.add_resource(ProductList, '/products/')
 api.add_resource(Product, '/products/<product_id>')
+api.add_resource(Healthcheck, '/health')
 
 @app.after_request
 def after_request(response):
