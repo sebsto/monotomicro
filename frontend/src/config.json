@@ -1,3 +1,3 @@
 {
-    "backend_url": "http://3.70.98.89:8888"
+    "backend_url": "https://monolith-api-48905778.eu-central-1.elb.amazonaws.com:8888"
 }
