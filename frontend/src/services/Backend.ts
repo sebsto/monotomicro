@@ -1,7 +1,14 @@
 import { Cart, Item, ItemInCart } from '../context/Types'
 
+import config from '../config.json' 
+
 export class Backend {
-    private static BASE_URL: string = 'http://localhost:8888'
+    // private static BASE_URL: string = 'http://localhost:8888'
+    private static BASE_URL= config.backend_url
+
+    constructor() {
+        console.log(`Using backend server at ${Backend.BASE_URL}`)
+    }
 
     public async loadItems(): Promise<Item[]> {
 
