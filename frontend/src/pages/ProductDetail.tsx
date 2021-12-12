@@ -10,7 +10,7 @@ import { AppContext } from "../context/AppProvider"
 import { TopMenu } from "../components/TopMenu"
 import { formatCurrency } from "../services/Currency"
 import { Backend } from '../services/Backend'
-import { Item, Cart, IAppContext } from "../context/Types"
+import { Item, Cart } from "../context/Types"
 
 export function ProductDetail(props: any): ReactElement {
 
@@ -55,7 +55,7 @@ export function ProductDetail(props: any): ReactElement {
     let c = await backend.addItemToCart(item, quantity)
     setCart(c)
     // TODO Should refresh app context 
-    const appContext: IAppContext = { loading: false, items: items, cart: c }
+    //const appContext: IAppContext = { loading: false, items: items, cart: c }
  
     return c
   }
