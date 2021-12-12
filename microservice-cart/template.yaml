@@ -32,13 +32,22 @@ Resources:
         - DynamoDBReadPolicy:
             TableName: !Ref DynamoDBTable        
       Events:
-        MicroserviceCart:
+        MicroserviceGetCart:
           Type: HttpApi # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
             Path: /cart
             Method: get
             ApiId: !Ref HttpApi
-
+        MicroservicePutCart:
+          Type: HttpApi # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /cart
+            Method: put
+            ApiId: !Ref HttpApi
+      Environment:
+        Variables:
+          PRODUCT_TABLE: !Ref DynamoDBTable
+          
   ##  API Gateway
   HttpApi:
     Type: AWS::Serverless::HttpApi

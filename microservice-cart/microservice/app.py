@@ -1,42 +1,46 @@
 import json
+import boto3 
 
-# import requests
-
+from cart import Cart
 
 def lambda_handler(event, context):
-    """Sample pure Lambda function
+    print(event)
+    print(context)
 
-    Parameters
-    ----------
-    event: dict, required
-        API Gateway Lambda Proxy Input Format
+    cart = Cart()
+    result = {}
 
-        Event doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
+    # this is blocked by the API Gateway, but we never know
+    # the / at the end is there to enforce flask-rest behaviour that was used by the monolith
+    if not event['rawPath'].startswith('/cart'):
+        result = {
+            "statusCode": 404,
+            "body": json.dumps({
+                "message": f"Invalid path : {event['rawPath']}"
+            })
+        }
+    else:
 
-    context: object, required
-        Lambda Context runtime methods and attributes
+        # default response 
+        result = {
+            "statusCode": 405,
+            "body": json.dumps({
+                "message": f"Invalid method : {event['requestContext']['http']['method']}"
+            })
+        }
 
-        Context doc: https://docs.aws.amazon.com/lambda/latest/dg/python-context-object.html
+        # handle get 
+        if event['requestContext']['http']['method'] == 'GET':
+            result = {
+                "statusCode": 200,
+                "body": json.dumps(cart.get())
+            }
 
-    Returns
-    ------
-    API Gateway Lambda Proxy Output Format: dict
+        # handle put     
+        if event['requestContext']['http']['method'] == 'PUT':
+            result = {
+                "statusCode": 200,
+                "body": json.dumps(cart.put(event['body']))
+            }
 
-        Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
-    """
-
-    # try:
-    #     ip = requests.get("http://checkip.amazonaws.com/")
-    # except requests.RequestException as e:
-    #     # Send some context about this error to Lambda Logs
-    #     print(e)
-
-    #     raise e
-
-    return {
-        "statusCode": 200,
-        "body": json.dumps({
-            "message": "hello world",
-            # "location": ip.text.replace("\n", "")
-        }),
-    }
+    return result

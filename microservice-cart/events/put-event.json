@@ -1,0 +1,39 @@
+{
+    "version": "2.0",
+    "routeKey": "PUT /cart",
+    "rawPath": "/cart",
+    "rawQueryString": "",
+    "cookies": [],
+    "headers": {
+        "Host": "127.0.0.1:3000",
+        "User-Agent": "curl/7.77.0",
+        "Accept": "*/*",
+        "Content-Length": "145",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-Forwarded-Proto": "http",
+        "X-Forwarded-Port": "3000"
+    },
+    "queryStringParameters": {},
+    "requestContext": {
+        "accountId": "123456789012",
+        "apiId": "1234567890",
+        "http": {
+            "method": "PUT",
+            "path": "/cart",
+            "protocol": "HTTP/1.1",
+            "sourceIp": "127.0.0.1",
+            "userAgent": "Custom User Agent String"
+        },
+        "requestId": "1be5458a-05c2-4db2-91ca-733dc36dd50e",
+        "routeKey": "PUT /cart",
+        "stage": "$default",
+        "time": "12/Dec/2021:16:27:33 +0000",
+        "timeEpoch": 1639326453,
+        "domainName": "localhost",
+        "domainPrefix": "localhost"
+    },
+    "body": "{\"item\":{\"id\":\"001\",\"name\":\"Unicorn Saddle\",\"desc\":\"Unique saddle for unique unicorns\",\"price\":250,\"stock\":15,\"image\":\"saddle.png\"},\"qty\":1}",
+    "pathParameters": {},
+    "stageVariables": {},
+    "isBase64Encoded": false
+}

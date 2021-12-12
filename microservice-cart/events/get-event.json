@@ -1,0 +1,35 @@
+{
+  "version": "2.0",
+  "routeKey": "GET /cart",
+  "rawPath": "/cart",
+  "rawQueryString": "",
+  "headers": {
+    "accept": "*/*",
+    "content-length": "0",
+    "host": "muarlorjw4.execute-api.eu-central-1.amazonaws.com",
+    "user-agent": "curl/7.77.0",
+    "x-amzn-trace-id": "Root=1-61b61ce4-75cd23ce04d635cc5fc03d74",
+    "x-forwarded-for": "77.141.96.39",
+    "x-forwarded-port": "443",
+    "x-forwarded-proto": "https"
+  },
+  "requestContext": {
+    "accountId": "486652066693",
+    "apiId": "muarlorjw4",
+    "domainName": "muarlorjw4.execute-api.eu-central-1.amazonaws.com",
+    "domainPrefix": "muarlorjw4",
+    "http": {
+      "method": "GET",
+      "path": "/cart",
+      "protocol": "HTTP/1.1",
+      "sourceIp": "77.141.96.39",
+      "userAgent": "curl/7.77.0"
+    },
+    "requestId": "KPlzrijIliAEPNg=",
+    "routeKey": "GET /cart",
+    "stage": "$default",
+    "time": "12/Dec/2021:16:01:40 +0000",
+    "timeEpoch": 1639324900120
+  },
+  "isBase64Encoded": false
+}
